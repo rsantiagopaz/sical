@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.adobe.flex.extras.controls.*" creationComplete="fncInit()">
+	<mx:states>
+		<mx:State name="juntas">
+			<mx:SetProperty target="{gridTitulos}" name="height" value="411"/>
+			<mx:SetProperty target="{gridTitulos}" name="y" value="58"/>
+			<mx:SetProperty target="{formitem1}" name="y" value="28"/>
+			<mx:SetProperty target="{formitem2}" name="y" value="28"/>
+			<mx:SetProperty target="{btnBuscar3}" name="y" value="28"/>
+			<mx:AddChild relativeTo="{panel1}" position="lastChild">
+				<mx:RadioButton x="168" y="0" label="Vigente" id="rdbVigente" groupName="opcion" selected="true"/>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{panel1}" position="lastChild">
+				<mx:Label x="0" y="2" text="Consultar en Tomo Cargos:"/>
+			</mx:AddChild>
+			<mx:AddChild relativeTo="{panel1}" position="lastChild">
+				<mx:RadioButton x="243" y="0" label="Anterior" id="rdbAnterior" groupName="opcion"/>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="consdircargos_as.as" />
+	<mx:Script source="../asincludes/util.as"/>
+	<mx:Panel x="0" y="0" layout="absolute" title="Incumbencia de Títulos para un Cargo" id="panel1">
+		<mx:DataGrid id="gridTitulos" width="750"  height="429" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlTitulos.titulos}" y="40" tabIndex="7">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_tomo_cargo"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_titulo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_titulo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_clasificacion"/>
+				<mx:DataGridColumn width="150" headerText="Código" dataField="@codtit" sortCompareFunction="numericSort"/>
+				<mx:DataGridColumn width="270" headerText="Título" dataField="@denomtit" sortCompareFunction="doCaselessSortForField('@denomtit')"/>
+				<mx:DataGridColumn width="200" headerText="Tipo Clas." dataField="@denomclas" sortCompareFunction="doCaselessSortForField('@denomclas')"/>
+				<mx:DataGridColumn width="150" headerText="Tipo Tít." dataField="@tipo" sortCompareFunction="doCaselessSortForField('@tipo')"/>				
+			</mx:columns>
+		</mx:DataGrid>		
+		<mx:FormItem label="Cargo:" y="10" width="470" x="170" id="formitem2">
+			<ns1:AutoComplete id="acCargo" labelField="descripcion" width="412"  tabIndex="1"/>
+		</mx:FormItem>
+		<mx:FormItem label="Cód.:" x="0" y="10" width="162" id="formitem1">
+				<mx:TextInput id="txiCodigoC" restrict="0123456789" tabIndex="0" width="111"/>
+		</mx:FormItem>
+		<mx:Button id="btnBuscar3" width="26" height="22" icon="@Embed(source='../img/search.png')" x="648" y="10"/>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Exportar" id="btnImprimir"  icon="@Embed(source='../img/print.png')" tabIndex="9" enabled="true" x="0" y="477"/>
+		</mx:ControlBar>
+	</mx:Panel>	
+</mx:Canvas>

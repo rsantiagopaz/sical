@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+	<mx:states>
+		<mx:State name="baja">
+			<mx:SetProperty target="{gridAntecedentes}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes0}" name="editable" value="false"/>
+		</mx:State>
+	</mx:states>
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="postitulos_as.as" />
+	<mx:Panel x="0" y="0" width="100%" height="100%" layout="absolute" title="Postítulos y Posgrados">
+		<mx:Panel x="3" y="10" layout="absolute" title="Postítulos" height="252" width="445">
+			<mx:DataGrid id="gridAntecedentes" editable="true" width="422" height="204" dataProvider="{_xmlPostitulos.postitulo}" wordWrap="true" variableRowHeight="true" x="0" tabIndex="2">
+				<mx:columns>
+					<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+					<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+					<mx:DataGridColumn headerText="Postítulo" width="70" dataField="@postitulo" editable="false"/>
+					<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+					<mx:DataGridColumn headerText="Ac. Hist." width="35" dataField="@acum" editable="true">					
+						<mx:itemEditor>
+							<mx:Component>								
+								<mx:TextInput restrict="0123456789">
+									
+								</mx:TextInput>
+							</mx:Component>							
+						</mx:itemEditor>
+					</mx:DataGridColumn>
+					<mx:DataGridColumn headerText="Cant." width="30" dataField="@cantidad" editable="true">					
+						<mx:itemEditor>
+							<mx:Component>								
+								<mx:TextInput restrict="0123456789">
+									
+								</mx:TextInput>
+							</mx:Component>							
+						</mx:itemEditor>
+					</mx:DataGridColumn>																					
+				</mx:columns>
+			</mx:DataGrid>
+		</mx:Panel>
+		<mx:ControlBar horizontalAlign="right">
+		</mx:ControlBar>
+		<mx:Panel x="452" y="10" layout="absolute" title="De Grado y Posgrado" height="252" width="445">
+			<mx:DataGrid id="gridAntecedentes0" editable="true" width="422" height="204" dataProvider="{_xmlPosgrados.postitulo}" wordWrap="true" variableRowHeight="true" x="0" tabIndex="4">
+				<mx:columns>
+					<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+					<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+					<mx:DataGridColumn headerText="Postítulo" width="75" dataField="@postitulo" editable="false"/>
+					<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+					<mx:DataGridColumn headerText="Ac. Hist." width="35" dataField="@acum" editable="true">					
+						<mx:itemEditor>
+							<mx:Component>								
+								<mx:TextInput restrict="0123456789">
+									
+								</mx:TextInput>
+							</mx:Component>							
+						</mx:itemEditor>
+					</mx:DataGridColumn>
+					<mx:DataGridColumn headerText="Cant." width="30" dataField="@cantidad" editable="true">
+						<mx:itemEditor>
+							<mx:Component>								
+								<mx:TextInput restrict="0123456789">
+									
+								</mx:TextInput>
+							</mx:Component>							
+						</mx:itemEditor>
+					</mx:DataGridColumn>																					
+				</mx:columns>
+			</mx:DataGrid>
+		</mx:Panel>
+	</mx:Panel>	
+</mx:Canvas>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="espacios_as.as" />
+	<mx:Panel layout="vertical" title="Espacios">
+		<mx:Canvas width="722" height="68">
+			<mx:FormItem label="Nombre:" y="23">
+				<mx:TextInput width="545" id="txtNombre" />
+			</mx:FormItem>
+			<mx:Button label="Buscar" id="btnBuscar" width="93" height="18" icon="@Embed(source='../img/search.png')" x="620" y="23"/>
+			<mx:CheckBox x="0" y="44" label="¿Caracteres Comodín?" id="chkComodin"/>
+			<mx:FormItem label="Código:" x="0" y="0" width="162">
+					<mx:TextInput id="txiCodigoE" restrict="0123456789" tabIndex="0" width="99"/>
+			</mx:FormItem>
+		</mx:Canvas>
+		<mx:DataGrid id="gridEspacios" width="722"  height="321" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlEspacios.espacios}">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_espacio"/>
+				<mx:DataGridColumn width="100" headerText="Codigo" dataField="@codigo" sortCompareFunction="numericSort"/>
+				<mx:DataGridColumn width="260" headerText="Denominación" dataField="@denominacion"/>				
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button width="24" height="18" icon="@Embed(source='../img/edit.png')"
+									click="outerDocument.fncEditar()" toolTip="Modificar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+				<mx:DataGridColumn headerText="" width="30" visible="false"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminar()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Nuevo Espacio" id="btnNuevoEspacio" icon="@Embed(source='../img/add.png')"/>
+			<mx:Button label="Cerrar" id="btnCerrar" icon="@Embed(source='../img/close.png')"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Canvas>

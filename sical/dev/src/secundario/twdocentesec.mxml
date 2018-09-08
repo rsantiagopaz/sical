@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:clases="clases.*" creationComplete="fncInit()">
+	<mx:Script source="twdocentesec_as.as" />
+	<mx:Panel layout="vertical" title="Datos Docente">
+		<mx:Form>
+		<mx:HBox>
+			<mx:FormItem label="Tipo Doc.:">
+				<mx:ComboBox width="84" labelField="@tipo_doc" dataProvider="{httpCombos.lastResult.tdoc}" id="cmbTiposDoc" tabIndex="1"></mx:ComboBox>
+			</mx:FormItem>
+			<mx:FormItem label="N° Doc.:">
+				<mx:TextInput width="113" id="txtNroDoc" restrict="0123456789" tabIndex="2"/>	
+			</mx:FormItem>
+		</mx:HBox>
+		<mx:HBox>
+			<mx:FormItem label="Llamado:">
+				<mx:ComboBox width="273" labelField="desc" dataProvider="{httpCombos.lastResult.llamados}" id="cmbLlamado" tabIndex="3"></mx:ComboBox>
+			</mx:FormItem>
+		</mx:HBox>	
+		</mx:Form>	
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button tabIndex="4" label="Buscar Inscripcion" id="btnMostrar" icon="@Embed(source='../img/search.png')"/>
+			<mx:Button tabIndex="5" label="Cancelar" id="btncancel" icon="@Embed(source='../img/close.png')"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	<clases:StringValidador_ES id="validNDOC" source="{txtNroDoc}" property="text" required="true" minLength="7" maxLength="10" />
+</mx:Canvas>

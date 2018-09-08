@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:clases="clases.*" creationComplete="fncInit()" xmlns:ns1="com.adobe.flex.extras.controls.*">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="reclamos_as.as" />
+	<mx:Panel layout="vertical" title="Reclamos">
+		<mx:Canvas width="890" height="102">
+			<mx:Button label="Buscar Inscripción" id="btnBuscar" width="157" height="18" icon="@Embed(source='../img/search.png')" x="723" y="14" tabIndex="4"/>
+			<mx:FormItem label="N° Doc.:" x="178" y="10">
+				<mx:TextInput width="113" id="txtNroDoc" restrict="0123456789" tabIndex="1"/>	
+			</mx:FormItem>
+			<mx:FormItem label="Tipo Doc.:" y="10" x="10">
+				<mx:ComboBox width="84" labelField="@tipo_doc" dataProvider="{httpCombos.lastResult.tdoc}" id="cmbTiposDoc" tabIndex="0"></mx:ComboBox>
+			</mx:FormItem>
+			<mx:Label x="10" y="70" width="69" id="lblNombre" text="Docente:"/>
+			<mx:TextInput x="87" y="70" width="268" id="txiNombre" editable="false"/>
+			<mx:FormItem label="N°Llamado:" x="10" y="40">
+				<mx:TextInput id="txiNroLlamado" restrict="0123456789" tabIndex="2"/>
+			</mx:FormItem>
+			<mx:FormItem label="Llamado:" x="272" y="40">
+				<ns1:AutoComplete width="340" id="acLlamado" filterFunction="customFilterFunction" tabIndex="3"/>
+			</mx:FormItem>
+		</mx:Canvas>
+		<mx:DataGrid id="gridReclamos" width="890"  height="321" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlReclamos.reclamos}" tabIndex="4">
+			<mx:columns>				
+				<mx:DataGridColumn visible="false" dataField="@id_reclamo_entrada"/>
+				<mx:DataGridColumn visible="false" dataField="@id_reclamo_respuesta"/>
+				<mx:DataGridColumn width="100" headerText="Fecha" dataField="@fecha_reclamo"/>
+				<mx:DataGridColumn width="100" headerText="Cód. Reclamo" dataField="@id_reclamo"/>
+				<mx:DataGridColumn width="260" headerText="Motivo" dataField="@motivo"/>
+				<mx:DataGridColumn width="260" headerText="Respuesta" dataField="@respuesta"/>				
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button enabled="{Boolean(data.@respuesta == '')}" width="24" height="18" icon="@Embed(source='../img/edit.png')"
+									click="outerDocument.fncEditar()" toolTip="Modificar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" icon="@Embed(source='../img/historial.png')"
+									click="outerDocument.fncResponder()" toolTip="Responder"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button enabled="{Boolean(data.@respuesta == '')}" width="24" height="18" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminar()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+			</mx:columns>
+		</mx:DataGrid>		
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Nuevo Reclamo" id="btnNuevoReclamo" enabled="{Boolean(idLlamadoDocente != '')}" icon="@Embed(source='../img/add.png')" tabIndex="5"/>
+			<mx:Button label="Imprimir" id="btnImprimir" icon="@Embed(source='../img/print.png')" tabIndex="9" enabled="{Boolean(idLlamadoDocente != '')}" width="132"/>
+			<mx:Button label="Cerrar" id="btnCerrar" icon="@Embed(source='../img/close.png')" tabIndex="6"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	<clases:StringValidador_ES id="validNDOC" source="{txtNroDoc}" property="text" required="true" minLength="7" maxLength="10" />
+</mx:Canvas>

@@ -1,0 +1,55 @@
+8
+
+dir
+44
+http://drsoft.com.ar/sical/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/config
+http://drsoft.com.ar/sical
+
+
+
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+338b84e1-0f53-4649-ac79-070d99e99eff
+
+lang
+dir
+
+tcpdf_config.php
+file
+
+
+
+
+2010-12-21T04:42:50.407000Z
+561476665cb4422f4d82884b905df604
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+tcpdf_config_alt.php
+file
+
+
+
+
+2010-12-21T04:42:50.414000Z
+9e62dbaad49baf305887a49a54246ce4
+2010-12-20T15:09:42.861015Z
+39
+cristian
+

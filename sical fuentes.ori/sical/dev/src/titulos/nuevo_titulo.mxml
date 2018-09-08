@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()" xmlns:ns1="com.adobe.flex.extras.controls.*" xmlns:clases="clases.*">
+	<mx:Script source="nuevo_titulo_as.as" />
+	<mx:TitleWindow layout="vertical" verticalAlign="middle" title="Títulos">
+		<mx:Form>
+				<mx:FormItem label="Código:">
+						<mx:TextInput id="txiCodigo" restrict="0123456789"/>
+				</mx:FormItem>
+				<mx:FormItem label="Título:">
+					<ns1:AutoComplete id="acTitulo" labelField="antecedente" filterFunction="customFilterFunction" width="500" />
+				</mx:FormItem>
+			</mx:Form>
+			<mx:ControlBar horizontalAlign="center">
+				<mx:Button label="Aceptar" id="btnGrabar" icon="@Embed(source='../img/save.png')"/>
+				<mx:Button label="Cancelar" id="btnCancel"  icon="@Embed(source='../img/close.png')"/>
+			</mx:ControlBar>
+	</mx:TitleWindow>	
+</mx:Canvas>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.adobe.flex.extras.controls.*" xmlns:clases="clases.*" creationComplete="fncInit()"  height="545" width="812" xmlns:ns2="datosdocente.*" xmlns:ns3="inscripllamado.*">
+	<mx:Metadata>		
+		[Event(name="EventConfirmarInscripcion")]
+		[Event(name="EventModificar")]
+		[Event(name="EventBaja")]
+		[Event(name="SelectPrincipal")]
+	</mx:Metadata>
+	<mx:Script source="inscripllamado_as.as" />
+	<mx:Panel layout="absolute" title="Inscripción" height="545" width="812">
+		<mx:Label x="10" y="12" text="N° Llamado:"/>
+		<mx:TextInput x="117" y="10" width="80" id="txiNroLlamado" restrict="0123456789" tabIndex="1"/>
+		<mx:Button x="205" y="10" label="Ver llamados..." id="btnVerLlamados" tabIndex="2"/>		
+		<ns3:datosdocente x="-1.5" y="38" id="datosdocente">
+		</ns3:datosdocente>
+		<mx:Label x="10" y="288" text="Folios:"/>
+		<mx:TextInput x="60" y="286" width="49" id="txiNroFolios" restrict="0123456789" tabIndex="16"/>
+		<mx:ComboBox x="216" y="316" width="389" enabled="{Boolean(chkNoClasifica.selected == true)}" id="cmbObservaciones" tabIndex="18"></mx:ComboBox>
+		<mx:CheckBox x="10" y="316" label="No Clasifica" tabIndex="17" id="chkNoClasifica"/>
+		<mx:Label x="117" y="318" text="Observaciones:"/>
+		<mx:DataGrid id="gridObservaciones" width="488" height="105" dataProvider="{_xmlObs.observacion}" wordWrap="true" variableRowHeight="true" tabIndex="20" x="10" y="344">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="id_observacion"/>
+				<mx:DataGridColumn headerText="Observación" width="400" dataField="descripcion"/>									
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+				<mx:itemRenderer>
+					<mx:Component>
+						<mx:HBox horizontalAlign="center">	
+							<mx:Button  width="24" height="18" icon="@Embed(source='../img/del.png')"
+								click="outerDocument.fncEliminarObs()" toolTip="Eliminar"
+								/>
+						</mx:HBox>						
+					</mx:Component>
+				</mx:itemRenderer>
+				</mx:DataGridColumn>						
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:Button label="Agregar" id="btnAgregar"  icon="@Embed(source='../img/add.png')" tabIndex="19" x="613" y="316" enabled="{Boolean(chkNoClasifica.selected == true)}"/>
+		<mx:Label x="325" y="12" id="lblDescripcion"/>
+		<mx:TextArea x="506" y="381" maxChars="255" id="txaComentarios" height="68" width="276" tabIndex="21"/>
+		<mx:Text x="506" y="344" text="Motivo (Sólo para Observación &quot;NO CUMPLE &#xa;CON LOS REQUISITOS EXIGIDOS&quot;):" height="38" width="276" id="txtObs"/>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Confirmar" id="btnGuardar"  icon="@Embed(source='../img/save.png')" tabIndex="22"/>
+		</mx:ControlBar>
+	</mx:Panel>	
+</mx:Canvas>

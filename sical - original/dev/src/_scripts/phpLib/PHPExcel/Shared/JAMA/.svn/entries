@@ -1,0 +1,124 @@
+8
+
+dir
+44
+http://drsoft.com.ar/sical/sical/src/_scripts/phpLib/PHPExcel/Shared/JAMA
+http://drsoft.com.ar/sical
+
+
+
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+338b84e1-0f53-4649-ac79-070d99e99eff
+
+utils
+dir
+
+tests
+dir
+
+LUDecomposition.php
+file
+
+
+
+
+2010-12-21T04:42:48.458000Z
+55b867174a2f6bc16a2ec8c85e9faeb1
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+CholeskyDecomposition.php
+file
+
+
+
+
+2010-12-21T04:42:48.466000Z
+4c8bfd42e8f638ee9e325d01e0626416
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+SingularValueDecomposition.php
+file
+
+
+
+
+2010-12-21T04:42:48.473000Z
+b0e3e59ac4a59d120775fd038d8bc693
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+CHANGELOG.TXT
+file
+
+
+
+
+2010-12-21T04:42:48.482000Z
+bb25fb4dcf5c745c711643f1578944df
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+QRDecomposition.php
+file
+
+
+
+
+2010-12-21T04:42:48.488000Z
+f292506b779929554291274c9b34c4cd
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+EigenvalueDecomposition.php
+file
+
+
+
+
+2010-12-21T04:42:48.496000Z
+932bdce69cd84691658ee4ebde954d1b
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+docs
+dir
+
+Matrix.php
+file
+
+
+
+
+2010-12-21T04:42:48.508000Z
+bfcbd0fe1d125cde0ab9ffc82089f4a7
+2010-12-20T15:09:42.861015Z
+39
+cristian
+
+examples
+dir
+

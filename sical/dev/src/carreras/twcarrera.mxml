@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="twcarrera_as.as" />
+	<mx:Panel layout="vertical" title="carreras">
+		<mx:Canvas width="722" height="27">
+			<mx:FormItem label="Nombre:">
+				<mx:TextInput width="545" id="txtNombre" />
+			</mx:FormItem>
+			<mx:Button label="Buscar" id="btnBuscar" width="93" height="18" icon="@Embed(source='../img/search.png')" x="620"/>
+		</mx:Canvas>
+		<mx:DataGrid id="gridCarreras" width="690"  height="321" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlCarreras.carreras}">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_carrera"/>
+				<mx:DataGridColumn visible="false" dataField="@id_nivel"/>				
+				<mx:DataGridColumn width="100" headerText="Codigo" dataField="@codigo"/>
+				<mx:DataGridColumn width="260" headerText="Nombre" dataField="@nombre"/>
+				<mx:DataGridColumn width="100" headerText="Nivel" dataField="@nivel"/>				
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button width="24" height="18" icon="@Embed(source='../img/ok.png')"
+									click="outerDocument.fncSeleccionar()" toolTip="Seleccionar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>				
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Cerrar" id="btnCerrar" icon="@Embed(source='../img/close.png')"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Canvas>

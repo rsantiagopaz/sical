@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()" xmlns:clases="clases.*">
+	<mx:states>
+		<mx:State name="eliminar">
+			<mx:SetProperty target="{txtNombre}" name="editable" value="false"/>
+			<mx:SetProperty target="{cmbNivel}" name="enabled" value="false"/>			
+			<mx:AddChild relativeTo="{btnCancel}" position="before">
+				<mx:Button label="Eliminar" icon="@Embed(source='../img/del.png')" id="btnEliminar"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{btnGrabar}"/>
+		</mx:State>
+	</mx:states>
+	<mx:Script source="institucion_as.as" />
+	<mx:TitleWindow layout="vertical" verticalAlign="middle" title="Institución">
+		<mx:Form>
+				<mx:FormItem label="Nombre:">
+						<mx:TextInput width="462" id="txtNombre"/>
+				</mx:FormItem>
+				<mx:FormItem label="Provincia:" width="348">
+						<mx:ComboBox id="cmbNivel" labelField="@provincia" editable="false" width="275"></mx:ComboBox>
+				</mx:FormItem>
+			</mx:Form>
+			<mx:ControlBar horizontalAlign="center">
+				<mx:Button label="Grabar" id="btnGrabar" icon="@Embed(source='../img/save.png')"/>
+				<mx:Button label="Cancelar" id="btnCancel"  icon="@Embed(source='../img/close.png')"/>
+			</mx:ControlBar>
+	</mx:TitleWindow>	
+	<clases:StringValidador_ES id="validNombre" source="{txtNombre}" property="text" required="true" />
+</mx:Canvas>

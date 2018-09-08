@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()" xmlns:clases="clases.*" xmlns:ns1="com.adobe.flex.extras.controls.*">
+	<mx:states>
+		<mx:State name="eliminar">			
+			<mx:SetProperty target="{txtNombre}" name="editable" value="false"/>
+			<mx:SetProperty target="{cmbNivel}" name="enabled" value="false"/>
+			<mx:SetProperty target="{cmbGrado}" name="enabled" value="false"/>			
+			<mx:AddChild relativeTo="{btnCancel}" position="before">
+				<mx:Button label="Eliminar" icon="@Embed(source='../img/del.png')" id="btnEliminar"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{btnGrabar}"/>
+			<mx:SetProperty target="{acInstitucion}" name="enabled" value="false"/>
+			<mx:SetProperty target="{chkUnica}" name="enabled" value="false"/>
+			<mx:SetProperty target="{txtNorma}" name="editable" value="false"/>
+			<mx:SetProperty target="{rdbPresencial}" name="enabled" value="false"/>
+			<mx:SetProperty target="{rdbSemip}" name="enabled" value="false"/>
+			<mx:SetProperty target="{rdbDistancia}" name="enabled" value="false"/>
+			<mx:SetProperty target="{txaRequisitos}" name="editable" value="false"/>
+			<mx:SetProperty target="{txtDuracion}" name="editable" value="false"/>
+			<mx:SetProperty target="{txtHoraria}" name="editable" value="false"/>
+			<mx:SetProperty target="{cmbNivelPara}" name="enabled" value="false"/>
+			<mx:SetProperty target="{btnAddNivel}" name="enabled" value="false"/>
+			<mx:SetProperty target="{gridNivelesPara}" name="enabled" value="false"/>
+			<mx:SetProperty target="{gridNivelesPara}" name="editable" value="false"/>
+			<mx:SetProperty target="{rdbEspecSi}" name="enabled" value="false"/>
+			<mx:SetProperty target="{rdbEspecNo}" name="enabled" value="false"/>
+		</mx:State>
+	</mx:states>
+	<mx:Script source="titulo_as.as" />
+	<mx:TitleWindow layout="vertical" verticalAlign="middle" title="Título">
+		<mx:Form id="form1">
+				<mx:Canvas width="742" height="430">
+						<mx:FormItem label="Disciplina única:" x="1" y="100" height="22">
+								<mx:CheckBox id="chkUnica" tabIndex="5"/>
+						</mx:FormItem>
+						<mx:FormItem label="Norma Creación:" x="132" y="100">
+								<mx:TextInput width="488" id="txtNorma" tabIndex="6"/>
+						</mx:FormItem>
+						<mx:FormItem label="Modalidad" x="1" y="130">
+						</mx:FormItem>
+						<mx:RadioButton label="Semipresencial" x="198" y="130" id="rdbSemip" groupName="modalidad" tabIndex="8"/>
+						<mx:RadioButton label="Distancia" x="315" y="130" id="rdbDistancia" groupName="modalidad" tabIndex="9"/>
+						<mx:RadioButton label="Presencial" id="rdbPresencial" groupName="modalidad" x="109" y="130" tabIndex="7"/>
+						<mx:TextArea x="1" y="182" width="731" height="77" id="txaRequisitos" tabIndex="12"/>
+						<mx:FormItem label="Requisitos de Ingreso:" x="1" y="156">
+						</mx:FormItem>
+						<mx:FormItem label="Años Duración:" x="1" y="267">
+								<mx:TextInput width="98" id="txtDuracion" restrict="0123456789" tabIndex="13"/>
+						</mx:FormItem>
+						<mx:FormItem label="Carga Horaria:" x="210" y="267">
+								<mx:TextInput width="98" id="txtHoraria" restrict="0123456789" tabIndex="14"/>
+						</mx:FormItem>
+						<mx:DataGrid id="gridNivelesPara" x="359" y="297" height="122" width="373" tabIndex="17" dataProvider="{_xmlTituloNivelPara.titulospara}">
+								<mx:columns>
+										<mx:DataGridColumn visible="false" dataField="@id_nivel_para"/>
+										<mx:DataGridColumn headerText="Nivel para el que habilita el Título" dataField="@descripcion"/>
+										<mx:DataGridColumn headerText="" width="30" visible="true"> 
+											<mx:itemRenderer>
+												<mx:Component>
+													<mx:HBox horizontalAlign="center">	
+														<mx:Button  width="24" height="18" icon="@Embed(source='../img/del.png')"
+															click="outerDocument.fncEliminar()" visible="{Boolean(outerDocument.accion != 'eliminar')}" toolTip="Eliminar"
+															/>
+													</mx:HBox>						
+												</mx:Component>
+											</mx:itemRenderer>
+										</mx:DataGridColumn>
+								</mx:columns>
+						</mx:DataGrid>
+						<mx:FormItem label="Inst. que Otorga:" width="446" y="70" x="1">
+							<ns1:AutoComplete id="acInstitucion" filterFunction="customFilterFunction" width="329"  tabIndex="3"/>
+						</mx:FormItem>
+						<mx:FormItem label="Nivel que Otorga:" x="455" y="70">
+								<mx:ComboBox id="cmbNivel" labelField="@descripcion" editable="false" width="160" tabIndex="4"></mx:ComboBox>
+						</mx:FormItem>
+						<mx:FormItem label="Grado:" x="0" y="40">
+								<mx:ComboBox width="160" labelField="@denominacion" id="cmbGrado" editable="false" tabIndex="2"></mx:ComboBox>
+						</mx:FormItem>
+						<mx:FormItem label="Denominación:" x="0" y="10">
+								<mx:TextInput width="462" id="txtNombre" tabIndex="1"/>
+						</mx:FormItem>
+						<mx:FormItem label="Nivel Para:" x="0" y="298">
+								<mx:ComboBox id="cmbNivelPara" labelField="@descripcion" editable="false" width="160" tabIndex="15"></mx:ComboBox>
+						</mx:FormItem>
+						<mx:Button x="247" y="298" label="Agregar Nivel" id="btnAddNivel" tabIndex="16"/>
+						<mx:FormItem label="¿Específico para Nivel Superior?" x="398" y="130">
+						</mx:FormItem>
+						<mx:RadioButton label="Si" id="rdbEspecSi" groupName="especifico" x="599" y="130" tabIndex="10"/>
+						<mx:RadioButton label="No" id="rdbEspecNo" groupName="especifico" x="642" y="130" tabIndex="11"/>
+				</mx:Canvas>
+			</mx:Form>
+			<mx:ControlBar horizontalAlign="center">
+				<mx:Button label="Grabar" id="btnGrabar" icon="@Embed(source='../img/save.png')" tabIndex="18"/>
+				<mx:Button label="Cancelar" id="btnCancel"  icon="@Embed(source='../img/close.png')" tabIndex="19"/>
+			</mx:ControlBar>
+	</mx:TitleWindow>	
+	<clases:StringValidador_ES id="validNombre" source="{txtNombre}" property="text" required="true" />
+</mx:Canvas>

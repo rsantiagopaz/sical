@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF
+END
+LICENSE.TXT
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/LICENSE.TXT
+END
+CHANGELOG.TXT
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/CHANGELOG.TXT
+END
+unicode_data.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/unicode_data.php
+END
+tcpdf.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/tcpdf.php
+END
+tcpdf.crt
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/tcpdf.crt
+END
+barcodes.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/barcodes.php
+END
+README.TXT
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/README.TXT
+END
+htmlcolors.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/htmlcolors.php
+END
+2dbarcodes.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/2dbarcodes.php
+END
+tcpdf.fdf
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Shared/PDF/tcpdf.fdf
+END

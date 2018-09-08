@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.adobe.flex.extras.controls.*" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="modespaciosencarreras_as.as" />
+	<mx:Panel x="0" y="0" layout="absolute" title="Modificación de Espacios en Carreras">
+		<mx:ControlBar horizontalAlign="right">
+		</mx:ControlBar>
+		<mx:DataGrid id="gridEspaciosA" width="627"  height="351" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlEspaciosA.espacios}" y="40" tabIndex="2">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_cargo"/>				
+				<mx:DataGridColumn width="100" headerText="Codigo" dataField="@codigo" sortCompareFunction="numericSortByField('@codigo')"/>
+				<mx:DataGridColumn width="300" headerText="Denominación" dataField="@denominacion"/>
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminarEspacio()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>				
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:FormItem label="Carrera:" y="10" width="446" x="181">
+			<ns1:AutoComplete id="acCarreraA" labelField="descripcion" width="381"  tabIndex="1"/>
+		</mx:FormItem>
+		<mx:FormItem label="Espacio:" y="399" width="456" x="171">
+			<ns1:AutoComplete id="acEspacioN" labelField="descripcion" width="391"  tabIndex="4"/>
+		</mx:FormItem>
+		<mx:Button label="Agregar" id="btnAgregar"  icon="@Embed(source='../img/add.png')" tabIndex="5" x="0" y="429"/>
+		<mx:FormItem label="Código:" y="10" x="0">
+				<mx:TextInput id="txiCodigoCA" restrict="0123456789" tabIndex="0" width="110"/>
+		</mx:FormItem>
+		<mx:FormItem label="Código:" x="0" y="399" width="162">
+				<mx:TextInput id="txiCodigoE" restrict="0123456789" tabIndex="3" width="98"/>
+		</mx:FormItem>
+	</mx:Panel>
+	
+</mx:Canvas>

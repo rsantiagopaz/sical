@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()" xmlns:clases="clases.*" currentState="base" xmlns:ns1="com.adobe.flex.extras.controls.*">
+	<mx:states>
+		<mx:State name="eliminar">
+			<mx:SetProperty target="{txtNombre}" name="editable" value="false"/>
+			<mx:SetProperty target="{cmbNivel}" name="enabled" value="false"/>			
+			<mx:AddChild relativeTo="{btnCancel}" position="before">
+				<mx:Button label="Eliminar" icon="@Embed(source='../img/del.png')" id="btnEliminar" tabIndex="9"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{btnGrabar}"/>
+			<mx:SetProperty target="{titlewindow1}" name="title" value="Llamado"/>
+			<mx:SetProperty target="{txiCodigo}" name="tabIndex" value="0"/>
+			<mx:SetProperty target="{txtNombre}" name="tabIndex" value="1"/>
+			<mx:SetProperty target="{dfFechaInicio}" name="tabIndex" value="2"/>
+			<mx:SetProperty target="{dfFechaFin}" name="tabIndex" value="3"/>
+			<mx:SetProperty target="{cmbNivel}" name="tabIndex" value="4"/>
+			<mx:SetProperty target="{txiCodigo}" name="editable" value="false"/>
+			<mx:SetProperty target="{rbVisibleSi}" name="enabled" value="false"/>
+			<mx:SetProperty target="{rbVisibleNo}" name="enabled" value="false"/>
+			<mx:SetProperty target="{chkAcum}" name="tabIndex" value="5"/>
+			<mx:SetProperty target="{chkAcum}" name="enabled" value="false"/>
+			<mx:SetProperty target="{rbVisibleSi}" name="tabIndex" value="6"/>
+			<mx:SetProperty target="{rbVisibleNo}" name="tabIndex" value="7"/>
+			<mx:SetProperty target="{cmbLlamado}" name="enabled" value="false"/>			
+			<mx:SetProperty target="{chkControlarLlamadoConflictivo}" name="enabled" value="false"/>
+			<mx:SetProperty target="{txiNroLlamado}" name="editable" value="false"/>
+			<mx:SetProperty target="{acLlamado}" name="enabled" value="false"/>
+		</mx:State>
+		<mx:State name="base">
+			<mx:SetProperty target="{formitem3}" name="label" value="Descripción:"/>
+			<mx:SetProperty target="{txiCodigo}" name="tabIndex" value="0"/>
+			<mx:SetProperty target="{txtNombre}" name="tabIndex" value="1"/>
+			<mx:SetProperty target="{dfFechaInicio}" name="tabIndex" value="2"/>
+			<mx:SetProperty target="{dfFechaFin}" name="tabIndex" value="3"/>
+			<mx:SetProperty target="{cmbNivel}" name="tabIndex" value="4"/>
+			<mx:SetProperty target="{txiCodigo}" name="editable" value="false"/>
+			<mx:SetProperty target="{rbVisibleSi}" name="tabIndex" value="6"/>
+			<mx:SetProperty target="{rbVisibleNo}" name="tabIndex" value="7"/>
+			<mx:SetProperty target="{chkAcum}" name="tabIndex" value="5"/>					
+		</mx:State>
+		<mx:State name="iniprim">
+			<mx:SetProperty target="{titlewindow1}" name="title" value="Llamado"/>
+			<mx:SetProperty target="{formitem3}" name="label" value="Descripción:"/>
+			<mx:SetProperty target="{txtNombre}" name="tabIndex" value="1"/>
+			<mx:SetProperty target="{cmbNivel}" name="tabIndex" value="4"/>
+			<mx:SetProperty target="{btnGrabar}" name="tabIndex" value="12"/>
+			<mx:SetProperty target="{txiCodigo}" name="tabIndex" value="0"/>
+			<mx:SetProperty target="{dfFechaInicio}" name="tabIndex" value="2"/>
+			<mx:SetProperty target="{dfFechaFin}" name="tabIndex" value="3"/>
+			<mx:SetProperty target="{txiCodigo}" name="editable" value="false"/>
+			<mx:SetProperty target="{rbVisibleSi}" name="tabIndex" value="9"/>
+			<mx:SetProperty target="{rbVisibleNo}" name="tabIndex" value="10"/>
+			<mx:SetProperty target="{btnCancel}" name="tabIndex" value="13"/>
+			<mx:RemoveChild target="{formitem5}"/>
+			<mx:AddChild relativeTo="{formitem1}" position="before" target="{formitem5}"/>
+			<mx:SetProperty target="{chkAcum}" name="tabIndex" value="8"/>
+			<mx:SetProperty target="{cmbLlamado}" name="tabIndex" value="11"/>			
+		</mx:State>
+		<mx:State name="especadult">
+			<mx:SetProperty target="{titlewindow1}" name="title" value="Llamado"/>
+			<mx:SetProperty target="{formitem3}" name="label" value="Descripción:"/>
+			<mx:SetProperty target="{txiCodigo}" name="tabIndex" value="0"/>
+			<mx:SetProperty target="{txtNombre}" name="tabIndex" value="1"/>
+			<mx:SetProperty target="{dfFechaInicio}" name="tabIndex" value="2"/>
+			<mx:SetProperty target="{dfFechaFin}" name="tabIndex" value="3"/>
+			<mx:SetProperty target="{cmbNivel}" name="tabIndex" value="4"/>
+			<mx:SetProperty target="{txiCodigo}" name="editable" value="false"/>
+			<mx:SetProperty target="{chkAcum}" name="tabIndex" value="5"/>
+			<mx:SetProperty target="{rbVisibleSi}" name="tabIndex" value="6"/>
+			<mx:SetProperty target="{rbVisibleNo}" name="tabIndex" value="7"/>			
+		</mx:State>
+	</mx:states>
+	<mx:Script source="llamado_as.as" />
+	<mx:TitleWindow layout="vertical" verticalAlign="middle" title="Llamado" id="titlewindow1">
+		<mx:Form id="form1">
+				<mx:FormItem label="Nro llamado:">
+					<mx:TextInput id="txiCodigo" restrict="0123456789" tabIndex="0"/>
+				</mx:FormItem>
+				<mx:FormItem label="Descripción:" id="formitem3">
+						<mx:TextInput width="462" id="txtNombre" restrict="abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ°.0123456789 " tabIndex="1"/>
+				</mx:FormItem>
+				<mx:FormItem label="Fecha de Inicio:">
+					<clases:DateFieldEs width="132" id="dfFechaInicio" tabIndex="2"/>
+				</mx:FormItem>
+				<mx:FormItem label="Fecha de Finalización:">
+					<clases:DateFieldEs width="132" id="dfFechaFin" tabIndex="3"/>
+				</mx:FormItem>
+				<mx:FormItem label="Nivel:" id="formitem4">
+						<mx:ComboBox id="cmbNivel" labelField="@nivel" editable="false" tabIndex="4"></mx:ComboBox>
+				</mx:FormItem>
+				<mx:FormItem label="Tipo Llamado:">
+					<mx:ComboBox width="346" labelField="@subtipo_clasificacion" id="cmbTipoLlamado"></mx:ComboBox>
+				</mx:FormItem>
+				<mx:FormItem label="Ordinario del Corriente Año" tabIndex="6" id="formitem5">
+					<mx:CheckBox tabIndex="5" id="chkAcum"/>
+				</mx:FormItem>
+				<mx:FormItem label="¿Visible para Consulta?:" id="formitem1">
+					<mx:HBox>
+						<mx:RadioButton label="Sí" id="rbVisibleSi" tabIndex="7" selected="false" groupName="visible"/>
+						<mx:RadioButton label="No" selected="false" id="rbVisibleNo" tabIndex="8" groupName="visible"/>
+					</mx:HBox>	
+				</mx:FormItem>
+				<mx:FormItem label="Llamado a Tomar Acumulado:" id="formitem6">
+					<mx:ComboBox width="462" labelField="@desc" id="cmbLlamado" prompt="Seleccione el llamado si corresponde..." tabIndex="9"></mx:ComboBox>
+				</mx:FormItem>
+				<mx:FormItem label="¿Controlar previa Inscripción en otro Llamado?:">
+						<mx:CheckBox id="chkControlarLlamadoConflictivo" tabIndex="10"/>
+				</mx:FormItem>
+				<mx:Canvas width="746" height="43">
+						<mx:FormItem label="Nro Llamado:" x="10" y="10">
+							<mx:TextInput id="txiNroLlamado" restrict="0123456789" tabIndex="11" editable="{Boolean(chkControlarLlamadoConflictivo.selected == true)}"/>
+						</mx:FormItem>
+						<mx:FormItem label="Llamado:" x="272" y="10">
+							<ns1:AutoComplete width="390" id="acLlamado" filterFunction="customFilterFunction" tabIndex="12" enabled="{Boolean(chkControlarLlamadoConflictivo.selected == true)}"/>
+						</mx:FormItem>
+				</mx:Canvas>
+			</mx:Form>
+			<mx:ControlBar horizontalAlign="center">
+				<mx:Button label="Grabar" id="btnGrabar" icon="@Embed(source='../img/save.png')" tabIndex="13"/>
+				<mx:Button label="Cancelar" id="btnCancel"  icon="@Embed(source='../img/close.png')" tabIndex="14"/>
+			</mx:ControlBar>
+	</mx:TitleWindow>
+	<clases:StringValidador_ES id="validNombre" source="{txtNombre}" property="text" required="true" />
+</mx:Canvas>

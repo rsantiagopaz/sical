@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()" xmlns:ns1="com.adobe.flex.extras.controls.*" height="166">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="SelectPrincipal")]
+	</mx:Metadata>
+	<mx:Script source="importartodas_as.as" />
+	<mx:Panel x="0" y="0" width="788" height="166" layout="absolute" title="Importación de Inscripciones">
+		<mx:FormItem label="N° Llam. Origen:" x="10" y="10" width="231">
+			<mx:TextInput id="txiNroLlamadoOrigen" restrict="0123456789" tabIndex="0" width="119"/>
+		</mx:FormItem>
+		<mx:FormItem label="Llamado Origen:" x="249" y="10">
+			<ns1:AutoComplete width="406" id="acLlamadoOrigen" tabIndex="1"/>
+		</mx:FormItem>
+		<mx:FormItem label="N° Llam. Destino:" x="10" y="40" width="231">
+			<mx:TextInput id="txiNroLlamadoDestino" restrict="0123456789" tabIndex="2" width="114"/>
+		</mx:FormItem>
+		<mx:FormItem label="Llamado Destino:" x="249" y="40">
+			<ns1:AutoComplete width="401" id="acLlamadoDestino" tabIndex="6"/>
+		</mx:FormItem>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Confirmar Importación" id="btnGuardar"  icon="@Embed(source='../img/ok.png')" tabIndex="4" enabled="true"/>
+			<mx:Button label="Cancelar  Importación" id="btnCancelar"  icon="@Embed(source='../img/close.png')" tabIndex="5" enabled="true"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Canvas>

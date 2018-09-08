@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.adobe.flex.extras.controls.*" creationComplete="fncInit()" width="95%" height="95%">
+	<mx:states>
+		<mx:State name="visualizacion">
+			<mx:RemoveChild target="{label1}"/>
+			<mx:RemoveChild target="{cboNivel}"/>
+			<mx:RemoveChild target="{btnImpactarSeleccionadas}"/>
+			<mx:RemoveChild target="{btnImpactarTodas}"/>
+			<mx:RemoveChild target="{btnImpactarNivelSeleccionado}"/>
+			<mx:SetStyle target="{canvas1}" name="bottom" value="350"/>
+			<mx:SetStyle target="{gridespaciosA}" name="top" value="89"/>
+		</mx:State>
+	</mx:states>
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="novtomoespacios_as.as" />
+	<mx:Panel layout="absolute" title="Novedades Tomo Espacios" left="0" right="0" top="0" bottom="0">
+		<mx:DataGrid id="gridespaciosA" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlespaciosA.espacios}" tabIndex="5" left="0" right="0" top="124" bottom="0">
+			<mx:columns>
+				<mx:DataGridColumn headerText="" dataField="seleccionado" width="60" visible="{Boolean(_visualizacion == true)}">
+					 <mx:itemRenderer>
+				      <mx:Component>
+				        <mx:Canvas>
+				          <mx:CheckBox  x="20" selected="{data.@seleccionado==1}" >
+				            <mx:click>
+				            	<![CDATA[
+				            		if (data.@seleccionado == 1) { 
+				            		    data.@seleccionado = 0;
+				            		} else {
+				            		    data.@seleccionado = 1;
+				            		}
+				            		outerDocument.fncSeleccionar(data.@id_nov_tomo_espacios,data.@seleccionado);
+				            	]]>
+				            </mx:click> 
+				          </mx:CheckBox>
+				        </mx:Canvas>  
+				      </mx:Component>						
+				     </mx:itemRenderer>
+				</mx:DataGridColumn>
+				<mx:DataGridColumn visible="false" dataField="@id_tomo_espacio"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_espacio"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_titulo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_clasificacion"/>
+				<mx:DataGridColumn width="85" headerText="Fecha" dataField="@fecha_novedad"/>
+				<mx:DataGridColumn width="80" headerText="Cód. Carr." dataField="@cod_carrera" sortCompareFunction="numericSortByField('@cod_carrera')"/>
+				<mx:DataGridColumn width="175" headerText="Carrera" dataField="@denomcar"/>
+				<mx:DataGridColumn width="80" headerText="Cód. Esp." dataField="@cod_espacio" sortCompareFunction="numericSortByField('@cod_espacio')"/>				
+				<mx:DataGridColumn width="180" headerText="Espacio" dataField="@denomesp"/>
+				<mx:DataGridColumn width="100" headerText="Nivel" dataField="@nivel"/>
+				<mx:DataGridColumn width="80" headerText="Cód. Tít." dataField="@cod_titulo" sortCompareFunction="numericSortByField('@cod_titulo')"/>
+				<mx:DataGridColumn width="180" headerText="Título" dataField="@denomtit"/>
+				<mx:DataGridColumn width="70" headerText="Tipo Nov." dataField="@tipo_novedad"/>
+				<mx:DataGridColumn width="110" headerText="Tipo Tít." dataField="@tipo"/>
+				<mx:DataGridColumn headerText="" width="30" visible="{Boolean(_visualizacion == true)}"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" icon="@Embed(source='../img/ok.png')"
+									click="outerDocument.fncImpactarNovedad()" toolTip="Impactar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+				<mx:DataGridColumn headerText="" width="30" visible="{Boolean(_visualizacion == true)}"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminarNovedad()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:Canvas left="0" right="0" top="0" bottom="293" id="canvas1">
+			<mx:Button label="Buscar" id="btnBuscar" height="18" icon="@Embed(source='../img/search.png')" y="28" tabIndex="4" right="205" left="873"/>
+			<mx:Label text="Cód. Título:" y="0" left="0" right="1098"/>			
+			<mx:Label text="Cód. Espacio:" y="0" left="217" right="866"/>			
+			<mx:ComboBox id="cboOpcEnt" y="26" labelField="@tipo" dataProvider="{_xmlOpcEnt.tiposent}" tabIndex="2" left="93" width="107" enabled="true"></mx:ComboBox>
+			<mx:Label y="28" text="Buscar:" left="0" right="1125"/>
+			<mx:Label text="Nombre:" y="26" right="893" left="217"/>			
+			<mx:ComboBox x="93" y="56" width="328" labelField="@SYSusuarionombre" dataProvider="{_xmlUsuarios.usuarios}" id="cboUsuario"></mx:ComboBox>
+			<mx:Label y="58" text="Usuario:" left="0" right="1125"/>
+			<mx:HRule y="86" left="0" right="0"/>
+			<mx:Label y="96" text="Nivel:" left="0" right="1125" id="label1"/>
+			<mx:ComboBox x="93" y="93" id="cboNivel" labelField="@nivel" dataProvider="{_xmlNiveles.niveles}"></mx:ComboBox>
+			<mx:TextInput id="txiCodigoT" restrict="0123456789" tabIndex="0" width="116" x="93"/>
+			<mx:TextInput id="txiCodigoE" restrict="0123456789" tabIndex="1" width="78" x="320"/>
+			<mx:TextInput width="545" id="txtNombre"  tabIndex="3" x="320" y="26"/>
+		</mx:Canvas>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Impactar Seleccionadas" id="btnImpactarSeleccionadas" tabIndex="6"/>
+			<mx:Button label="Impactar Todas" id="btnImpactarTodas"/>
+			<mx:Button label="Impactar Nivel Seleccionado" id="btnImpactarNivelSeleccionado" tabIndex="7"/>
+		</mx:ControlBar>
+	</mx:Panel>
+	
+</mx:Canvas>

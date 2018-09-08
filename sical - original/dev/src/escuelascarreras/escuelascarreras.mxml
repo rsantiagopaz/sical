@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.adobe.flex.extras.controls.*" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="escuelascarreras_as.as" />
+	<mx:Panel x="0" y="0" layout="absolute" title="Carreras y Espacios por Escuela">
+		<mx:ControlBar horizontalAlign="right">
+		</mx:ControlBar>
+		<mx:DataGrid id="gridEscuelas" width="840"  height="321" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlEscuelas.escuelas}" y="66" tabIndex="3" x="0">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_escuela_carrera_espacio"/>
+				<mx:DataGridColumn visible="false" dataField="@id_escuela"/>
+				<mx:DataGridColumn visible="false" dataField="@cod_escuela"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_carrera"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_espacio"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_nivel"/>
+				<mx:DataGridColumn visible="false" dataField="@codigo"/>
+				<mx:DataGridColumn width="100" headerText="Cod. Carr." dataField="@cod_carrera" sortCompareFunction="numericSortCarr"/>
+				<mx:DataGridColumn width="300" headerText="Carrera" dataField="@nombre"/>
+				<mx:DataGridColumn width="100" headerText="Cod. Esp." dataField="@cod_espacio" sortCompareFunction="numericSortEsp"/>
+				<mx:DataGridColumn width="300" headerText="Espacio" dataField="@denominacion"/>				
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminarEscuela()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:FormItem label="Carrera:" y="425" width="470" x="170">
+			<ns1:AutoComplete id="acCarrera" labelField="descripcion" width="405"  tabIndex="7"/>
+		</mx:FormItem>
+		<mx:FormItem label="Escuela:" y="10" width="470" x="170">
+			<ns1:AutoComplete id="acEscuela" labelField="descripcion" width="404"  tabIndex="1"/>
+		</mx:FormItem>
+		<mx:FormItem label="Espacio:" y="395" width="470" x="170">
+			<ns1:AutoComplete id="acEspacio" labelField="descripcion" width="405"  tabIndex="5"/>
+		</mx:FormItem>
+		<mx:Button label="Agregar" id="btnAgregar"  icon="@Embed(source='../img/add.png')" tabIndex="8" x="0" y="455"/>
+		<mx:FormItem label="Cód.:" x="0" y="395" width="162">
+				<mx:TextInput id="txiCodigoE" restrict="0123456789" tabIndex="4" width="111"/>
+		</mx:FormItem>
+		<mx:FormItem label="Cód.:" x="0" y="425" width="162">
+				<mx:TextInput id="txiCodigoC" restrict="0123456789" tabIndex="6" width="111"/>
+		</mx:FormItem>
+		<mx:FormItem label="Cód.:" x="0" y="10" width="162">
+				<mx:TextInput id="txiCodigoS" restrict="0123456789" tabIndex="0" width="111"/>
+		</mx:FormItem>
+		<mx:Button label="Buscar" id="btnBuscar" width="93" height="18" icon="@Embed(source='../img/search.png')" x="0" y="40" tabIndex="2"/>
+	</mx:Panel>
+	
+</mx:Canvas>

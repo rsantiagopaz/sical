@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel
+END
+RichText.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/RichText.php
+END
+DocumentProperties.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/DocumentProperties.php
+END
+HashTable.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/HashTable.php
+END
+Worksheet.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Worksheet.php
+END
+Calculation.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Calculation.php
+END
+ReferenceHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/ReferenceHelper.php
+END
+IComparable.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/IComparable.php
+END
+IOFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/IOFactory.php
+END
+Cell.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Cell.php
+END
+Style.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Style.php
+END
+NamedRange.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/NamedRange.php
+END
+Comment.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/Comment.php
+END
+WorksheetIterator.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/WorksheetIterator.php
+END
+DocumentSecurity.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/DocumentSecurity.php
+END

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="nomencladores_as.as" />
+	<mx:Panel layout="vertical" title="Nomenclador">
+		<mx:Canvas width="740" height="80">
+			<mx:Label x="178" y="10" text="Ordenar Por" fontWeight="bold"/>
+			<mx:RadioButton x="178" y="36" label="Código" id="rbCodigo" groupName="ordenar" selected="true" tabIndex="0"/>
+			<mx:RadioButton x="250" y="36" label="Denominación" id="rbNombre" groupName="ordenar" tabIndex="1"/>
+			<mx:Label x="395" y="10" text="Generar" fontWeight="bold"/>
+			<mx:RadioButton x="444" y="36" label="html" id="rbHtml" groupName="generar" tabIndex="3" selected="true"/>
+			<mx:RadioButton x="502" y="36" label="pdf" id="rbPdf" groupName="generar" tabIndex="4"/>
+			<mx:ComboBox id="cboNomenc" x="10" y="36" labelField="@tipo" dataProvider="{_xmlNomenc.tiposnomenc}"></mx:ComboBox>
+			<mx:Label x="10" y="10" text="Nomenclador de:" fontWeight="bold"/>
+		</mx:Canvas>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Exportar" id="btnGuardar"  icon="@Embed(source='../img/print.png')" tabIndex="5" enabled="true" width="114"/>
+		</mx:ControlBar>		
+	</mx:Panel>
+</mx:Canvas>

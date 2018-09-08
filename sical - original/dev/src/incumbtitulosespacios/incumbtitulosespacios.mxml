@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.adobe.flex.extras.controls.*" xmlns:local="local.*" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="incumbtitulosespacios_as.as" />
+	<mx:Panel x="0" y="0" layout="absolute" title="Incumbencia de Títulos para un Espacio">
+		<mx:ControlBar horizontalAlign="right">
+		</mx:ControlBar>
+		<local:RowColorDataGrid id="gridTitulos" width="740"  height="295" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlTitulos.titulos}" y="96" tabIndex="10">
+			<local:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_tomo_espacio"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_titulo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_espacio"/>
+				<mx:DataGridColumn visible="false" dataField="@id_carrera"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_titulo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_clasificacion"/>
+				<mx:DataGridColumn width="150" headerText="Código" dataField="@cod_titulo" sortCompareFunction="numericSortByField('@cod_titulo')"/>
+				<mx:DataGridColumn width="250" headerText="Título" dataField="@denomtit"/>
+				<mx:DataGridColumn width="200" headerText="Tipo Clas." dataField="@denomclas"/>
+				<mx:DataGridColumn width="150" headerText="Tipo Tít." dataField="@tipo"/>
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" enabled="{Boolean(data.@marcado == 0)}" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminarTitulo()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+			</local:columns>
+		</local:RowColorDataGrid>
+		<mx:FormItem label="Carrera:" y="40" width="470" x="170">
+			<ns1:AutoComplete id="acCarrera" labelField="descripcion" width="405"  tabIndex="3"/>
+		</mx:FormItem>
+		<mx:FormItem label="Titulo:" y="399" width="470" x="192">
+			<ns1:AutoComplete id="acTitulo" labelField="descripcion" width="414"  tabIndex="6"/>
+		</mx:FormItem>
+		<mx:FormItem label="Espacio:" y="10" width="470" x="170">
+			<ns1:AutoComplete id="acEspacio" labelField="descripcion" width="405"  tabIndex="1"/>
+		</mx:FormItem>
+		<mx:FormItem label="Tipo Tít:" x="0" y="429">
+				<mx:ComboBox width="160" labelField="@tipo" id="cmbTipoTitulo" dataProvider="{_xmlTiposTitulos.tipostitulos}" editable="false" tabIndex="7"></mx:ComboBox>
+		</mx:FormItem>
+		<mx:FormItem label="Tipo Clas:" x="234" y="429">
+				<mx:ComboBox width="160" labelField="@denominacion" id="cmbTipoClas" dataProvider="{_xmlTiposClasificacion.tiposclasificacion}" editable="false" tabIndex="8"></mx:ComboBox>
+		</mx:FormItem>
+		<mx:Button label="Agregar" id="btnAgregar"  icon="@Embed(source='../img/add.png')" tabIndex="9" x="571" y="429"/>
+		<mx:Button label="Buscar" id="btnBuscar" width="93" height="18" icon="@Embed(source='../img/search.png')" x="0" y="70" tabIndex="4"/>
+		<mx:FormItem label="Cód.:" y="399" x="0">
+				<mx:TextInput id="txiCodigoT" restrict="0123456789" tabIndex="5" width="134"/>
+		</mx:FormItem>
+		<mx:FormItem label="Cód.:" x="0" y="10" width="162">
+				<mx:TextInput id="txiCodigoE" restrict="0123456789" tabIndex="0" width="111"/>
+		</mx:FormItem>
+		<mx:FormItem label="Cód.:" x="0" y="40" width="162">
+				<mx:TextInput id="txiCodigoC" restrict="0123456789" tabIndex="2" width="111"/>
+		</mx:FormItem>
+	</mx:Panel>
+	
+</mx:Canvas>

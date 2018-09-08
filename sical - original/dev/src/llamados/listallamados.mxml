@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="listallamados_as.as" />
+	<mx:Panel layout="vertical" title="Llamados">
+		<mx:DataGrid id="gridLlamados" width="760"  height="321" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlLlamados.llamados}">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_llamado"/>
+				<mx:DataGridColumn visible="false" dataField="@id_nivel"/>				
+				<mx:DataGridColumn width="100" headerText="Número" dataField="@nro_llamado"/>
+				<mx:DataGridColumn width="230" headerText="Descripción" dataField="@descripcion"/>
+				<mx:DataGridColumn width="100" headerText="Nivel" dataField="@nivel"/>
+				<mx:DataGridColumn width="100" headerText="Fecha Inic." dataField="@fecha_desde"/>
+				<mx:DataGridColumn width="100" headerText="Fecha Final." dataField="@fecha_hasta"/>
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button width="24" height="18" icon="@Embed(source='../img/ok.png')"
+									click="outerDocument.fncSeleccionar()" toolTip="Seleccionar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>				
+			</mx:columns>
+		</mx:DataGrid>
+		<mx:ControlBar horizontalAlign="right">
+			<mx:Button label="Cerrar" id="btnCerrar" icon="@Embed(source='../img/close.png')"/>
+		</mx:ControlBar>
+	</mx:Panel>
+</mx:Canvas>

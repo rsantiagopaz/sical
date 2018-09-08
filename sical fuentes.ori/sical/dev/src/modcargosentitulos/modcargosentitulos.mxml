@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.adobe.flex.extras.controls.*" xmlns:local="local.*" creationComplete="fncInit()">
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="modcargosentitulos_as.as" />
+	<mx:Panel x="0" y="0" layout="absolute" title="Modificación de Categorización de Títulos en Cargos">
+		<mx:ControlBar horizontalAlign="right">
+		</mx:ControlBar>
+		<local:RowColorDataGrid id="gridCargosA" width="640"  height="351" variableRowHeight="true" wordWrap="true" 
+			dataProvider="{_xmlCargosA.cargos}" y="40" rowColorFunction="calcRowColor">
+			<local:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_tomo_cargo"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_cargo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_titulo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_clasificacion"/>				
+				<mx:DataGridColumn width="250" headerText="Cargo" dataField="@denomcar"/>
+				<mx:DataGridColumn width="200" headerText="Tipo Clas." dataField="@denomclas"/>
+				<mx:DataGridColumn width="150" headerText="Tipo Tít." dataField="@tipo"/>
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" enabled="{Boolean(data.@marcado == 0)}" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminarCargo()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+			</local:columns>
+		</local:RowColorDataGrid>
+		<!--<mx:DataGrid id="gridCargosA" width="566"  height="351" variableRowHeight="true" wordWrap="true" dataProvider="{_xmlCargosA.cargos}" y="40">
+			<mx:columns>
+				<mx:DataGridColumn visible="false" dataField="@id_tomo_cargo"/>				
+				<mx:DataGridColumn visible="false" dataField="@id_cargo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_titulo"/>
+				<mx:DataGridColumn visible="false" dataField="@id_tipo_clasificacion"/>				
+				<mx:DataGridColumn width="250" headerText="Cargo" dataField="@denomcar"/>
+				<mx:DataGridColumn width="200" headerText="Tipo Clas." dataField="@denomclas"/>
+				<mx:DataGridColumn width="150" headerText="Tipo Tít." dataField="@tipo"/>
+				<mx:DataGridColumn headerText="" width="30" visible="true"> 
+					<mx:itemRenderer>
+						<mx:Component>
+							<mx:HBox horizontalAlign="center">	
+								<mx:Button  width="24" height="18" enabled="{Boolean(data.@marcado == 0)}" icon="@Embed(source='../img/del.png')"
+									click="outerDocument.fncEliminarCargo()" toolTip="Eliminar"
+									/>
+							</mx:HBox>						
+						</mx:Component>
+					</mx:itemRenderer>
+				</mx:DataGridColumn>
+			</mx:columns>
+		</mx:DataGrid>-->
+		<mx:FormItem label="Título:" y="10" width="446" x="192">
+			<ns1:AutoComplete id="acTituloA" lookAhead="true" labelField="descripcion" width="391"  tabIndex="1"/>
+		</mx:FormItem>
+		<mx:FormItem label="Cargo:" y="399" width="470" x="170">
+			<ns1:AutoComplete id="acCargoN" lookAhead="true" labelField="descripcion" width="412"  tabIndex="3"/>
+		</mx:FormItem>
+		<mx:FormItem label="Tipo Tít:" x="0" y="429">
+				<mx:ComboBox width="160" labelField="@tipo" id="cmbTipoTitulo" dataProvider="{_xmlTiposTitulos.tipostitulos}" editable="false" tabIndex="4"></mx:ComboBox>
+		</mx:FormItem>
+		<mx:FormItem label="Tipo Clas:" x="234" y="429">
+				<mx:ComboBox width="160" labelField="@denominacion" id="cmbTipoClas" dataProvider="{_xmlTiposClasificacion.tiposclasificacion}" editable="false" tabIndex="5"></mx:ComboBox>
+		</mx:FormItem>
+		<mx:Button label="Agregar" id="btnAgregar"  icon="@Embed(source='../img/add.png')" tabIndex="6" x="549" y="429"/>
+		<mx:FormItem label="Cód.:" y="10">
+				<mx:TextInput id="txiCodigoT" restrict="0123456789" tabIndex="0" width="134"/>
+		</mx:FormItem>
+		<mx:FormItem label="Cód.:" x="0" y="399" width="162">
+				<mx:TextInput id="txiCodigoC" restrict="0123456789" tabIndex="2" width="111"/>
+		</mx:FormItem>
+	</mx:Panel>
+	
+</mx:Canvas>

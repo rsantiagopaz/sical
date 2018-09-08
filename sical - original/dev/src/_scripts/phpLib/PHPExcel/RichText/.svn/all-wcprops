@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/RichText
+END
+TextElement.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/RichText/TextElement.php
+END
+Run.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/RichText/Run.php
+END
+ITextElement.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/sical/!svn/ver/39/sical/src/_scripts/phpLib/PHPExcel/RichText/ITextElement.php
+END

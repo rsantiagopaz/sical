@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+	<mx:states>
+		<mx:State name="baja">
+			<mx:SetProperty target="{gridAntecedentes1}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes4}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes0}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes2}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes6}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes3}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes5}" name="editable" value="false"/>
+			<mx:SetProperty target="{gridAntecedentes7}" name="editable" value="false"/>
+		</mx:State>
+	</mx:states>
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]
+	</mx:Metadata>
+	<mx:Script source="capacitacion_as.as" />
+	<mx:Panel x="0" y="0" width="100%" height="100%" layout="absolute" title="Capacitación y Otros">
+		<mx:TabNavigator x="10" y="10" width="850" height="487" creationPolicy="all">
+			<mx:Canvas label="Cap. en Servicio" width="100%" height="100%">
+				<mx:Panel x="10" y="10" layout="absolute" title="Cap. en Servicio" height="346" width="762">
+					<mx:DataGrid id="gridAntecedentes1" editable="true" width="482" height="204" dataProvider="{_xmlCapacitaciones.curso}" wordWrap="true" variableRowHeight="true" x="0" tabIndex="1">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Capacitación" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+			</mx:Canvas>
+			<mx:Canvas label="Publicaciones" width="100%" height="100%">
+				<mx:Panel x="10" y="10" layout="absolute" title="Publicaciones" height="346" width="762">
+					<mx:DataGrid id="gridAntecedentes4" editable="true" width="482" height="204" dataProvider="{_xmlPublicaciones.curso}" wordWrap="true" variableRowHeight="true" x="0">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Publicación" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+			</mx:Canvas>			
+			<mx:Canvas label="Prod. Artística" width="100%" height="100%">
+				<mx:Panel x="10" y="10" layout="absolute" title="Prod. Artística" height="346" width="762">
+					<mx:DataGrid id="gridAntecedentes0" editable="true" width="482" height="204" dataProvider="{_xmlProducciones.curso}" wordWrap="true" variableRowHeight="true" x="0">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Producción" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+			</mx:Canvas>
+			<mx:Canvas label="Premios" width="100%" height="100%">
+				<mx:Panel x="10" y="10" layout="absolute" title="Individual o Colectivo" height="245" width="762">
+					<mx:DataGrid id="gridAntecedentes2" editable="true" width="482" height="204" dataProvider="{_xmlPremiosIC.curso}" wordWrap="true" variableRowHeight="true" x="0">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Premio" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+				<mx:Panel x="10" y="263" layout="absolute" title="Personal" height="87" width="762">
+					<mx:DataGrid id="gridAntecedentes6" editable="true" width="482" height="45" dataProvider="{_xmlPremiosP.curso}" wordWrap="true" variableRowHeight="true" x="0">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Premio" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+			</mx:Canvas>
+			<mx:Canvas label="Concursos Título" width="100%" height="100%">
+				<mx:Panel x="10" y="10" layout="absolute" title="Certif. Cursos Posgrado" height="346" width="762">
+					<mx:DataGrid id="gridAntecedentes3" editable="true" width="482" height="204" dataProvider="{_xmlConcursosTitulo.curso}" wordWrap="true" variableRowHeight="true" x="0">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Concurso" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+			</mx:Canvas>
+			<mx:Canvas label="Conc. Anteced" width="100%" height="100%">
+				<mx:Panel x="10" y="10" layout="absolute" title="Conc. Anteced" height="163" width="762">
+					<mx:DataGrid id="gridAntecedentes5" editable="true" width="482" height="122" dataProvider="{_xmlConcAnteced.curso}" wordWrap="true" variableRowHeight="true" x="0" tabIndex="1">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Becas" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+				<mx:Panel x="10" y="181" layout="absolute" title="Conc. de Opos." height="163" width="762">
+					<mx:DataGrid id="gridAntecedentes7" editable="true" width="482" height="122" dataProvider="{_xmlConcOpos.curso}" wordWrap="true" variableRowHeight="true" x="0" tabIndex="2">
+						<mx:columns>
+							<mx:DataGridColumn visible="false" dataField="@id_financiador"/>
+							<mx:DataGridColumn headerText="Código" width="45" dataField="@codigo" editable="false"/>
+							<mx:DataGridColumn headerText="Becas" width="75" dataField="@curso" editable="false"/>
+							<mx:DataGridColumn headerText="Valoración" width="50" dataField="@valoracion" editable="false"/>
+							<mx:DataGridColumn headerText="Ac. Hist." width="30" dataField="@acum">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>
+							<mx:DataGridColumn headerText="Cantidad" width="30" dataField="@cantidad">
+								<mx:itemEditor>
+									<mx:Component>								
+										<mx:TextInput restrict="0123456789">
+											
+										</mx:TextInput>
+									</mx:Component>							
+								</mx:itemEditor>
+							</mx:DataGridColumn>																							
+						</mx:columns>
+					</mx:DataGrid>
+				</mx:Panel>
+			</mx:Canvas>
+		</mx:TabNavigator>
+		<mx:ControlBar horizontalAlign="right">
+		</mx:ControlBar>
+	</mx:Panel>	
+</mx:Canvas>

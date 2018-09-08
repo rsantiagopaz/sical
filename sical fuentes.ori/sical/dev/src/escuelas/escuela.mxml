@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()" xmlns:clases="clases.*">
+	<mx:states>
+		<mx:State name="eliminar">			
+			<mx:SetProperty target="{txtNombre}" name="editable" value="false"/>
+			<mx:SetProperty target="{cmbNivel}" name="enabled" value="false"/>
+			<mx:SetProperty target="{cmbDepartamento}" name="enabled" value="false"/>
+			<mx:SetProperty target="{cmbLocalidad}" name="enabled" value="false"/>
+			<mx:AddChild relativeTo="{btnCancel}" position="before">
+				<mx:Button label="Eliminar" icon="@Embed(source='../img/del.png')" id="btnEliminar"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{btnGrabar}"/>
+		</mx:State>
+	</mx:states>
+	<mx:Script source="escuela_as.as" />
+	<mx:TitleWindow layout="vertical" verticalAlign="middle" title="Escuela">
+		<mx:Form>
+				<mx:FormItem label="Nombre:">
+						<mx:TextInput width="462" id="txtNombre"/>
+				</mx:FormItem>
+				<mx:FormItem label="Nivel:">
+						<mx:ComboBox id="cmbNivel" labelField="@nivel" editable="false"></mx:ComboBox>
+				</mx:FormItem>
+				<mx:FormItem label="Departamento:">
+						<mx:ComboBox width="464" labelField="@denom" dataProvider="{xmlDepartamentos.departamento}" id="cmbDepartamento" editable="false"></mx:ComboBox>
+				</mx:FormItem>
+				<mx:FormItem label="Localidad:">
+						<mx:ComboBox width="465" labelField="@denom" dataProvider="{xmlDepartamentos.departamento.(@id_departamento==cmbDepartamento.selectedItem.@id_departamento).localidad}" id="cmbLocalidad" editable="false"></mx:ComboBox>
+				</mx:FormItem>
+			</mx:Form>
+			<mx:ControlBar horizontalAlign="center">
+				<mx:Button label="Grabar" id="btnGrabar" icon="@Embed(source='../img/save.png')"/>
+				<mx:Button label="Cancelar" id="btnCancel"  icon="@Embed(source='../img/close.png')"/>
+			</mx:ControlBar>
+	</mx:TitleWindow>	
+	<clases:StringValidador_ES id="validNombre" source="{txtNombre}" property="text" required="true" />
+</mx:Canvas>

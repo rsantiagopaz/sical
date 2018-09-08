@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" creationComplete="fncInit();">
+	<mx:states>
+		<mx:State name="baja">
+			<mx:AddChild relativeTo="{btnCancelar}" position="before">
+				<mx:Button label="Dar de Baja la Inscripcion" icon="@Embed(source='../img/nok.png')" width="234" id="btnBaja"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{btnGuardar}"/>
+		</mx:State>
+	</mx:states>
+	<mx:Metadata>
+		[Event(name="eveModulosHttpsResult")]
+		[Event(name="eventClose")]		
+	</mx:Metadata>
+	<mx:Script source="confirmacion_as.as" />
+	<mx:Panel x="0" y="0" width="100%" height="100%" layout="vertical"  title="Confirmación Datos de la Inscripción" horizontalAlign="center" verticalAlign="middle">
+		<mx:TextArea horizontalCenter="0" editable="false" id="txaError" color="#FF0000" width="444" height="120" top="92"/>
+		<mx:ControlBar horizontalAlign="right" id="controlbar1">
+		</mx:ControlBar>
+		<mx:Button label="Confirmar Datos de la Inscripción" id="btnGuardar"  icon="@Embed(source='../img/document-save.png')" tabIndex="11" enabled="true" horizontalCenter="0" verticalCenter="-31"/>
+		<mx:Button label="Cancelar la Inscripción" id="btnCancelar"  icon="@Embed(source='../img/close.png')" tabIndex="11" enabled="true" horizontalCenter="0" verticalCenter="27" width="234"/>
+	</mx:Panel>	
+</mx:Canvas>

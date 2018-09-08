@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="fncInit()" xmlns:clases="clases.*" currentState="base">
+	<mx:states>
+		<mx:State name="eliminar">			
+			<mx:SetProperty target="{cmbMotivo}" name="enabled" value="false"/>			
+			<mx:AddChild relativeTo="{btnCancel}" position="before">
+				<mx:Button label="Eliminar" icon="@Embed(source='../img/del.png')" id="btnEliminar"/>
+			</mx:AddChild>
+			<mx:RemoveChild target="{btnGrabar}"/>
+			<mx:SetProperty target="{txaObservaciones}" name="editable" value="false"/>
+		</mx:State>
+		<mx:State name="base">
+		</mx:State>
+		<mx:State name="responder">
+			<mx:SetProperty target="{formitem1}" name="label" value="Respuesta:"/>
+		</mx:State>
+	</mx:states>
+	<mx:Script source="reclamo_as.as" />
+	<mx:TitleWindow layout="vertical" verticalAlign="middle" title="Reclamo">
+		<mx:Form id="form1">
+				<mx:FormItem label="Motivo:" id="formitem1">
+						<mx:ComboBox id="cmbMotivo" labelField="@descripcion" editable="false"></mx:ComboBox>
+				</mx:FormItem>
+				<mx:FormItem label="Observaciones:">
+						<mx:TextArea width="462" id="txaObservaciones"/>
+				</mx:FormItem>
+			</mx:Form>
+			<mx:ControlBar horizontalAlign="center">
+				<mx:Button label="Grabar" id="btnGrabar" icon="@Embed(source='../img/save.png')"/>
+				<mx:Button label="Cancelar" id="btnCancel"  icon="@Embed(source='../img/close.png')"/>
+			</mx:ControlBar>
+	</mx:TitleWindow>	
+</mx:Canvas>
