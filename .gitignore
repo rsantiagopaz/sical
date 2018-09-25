@@ -3,6 +3,7 @@
 script/
 build/
 .metadata/
+bin-debug/
 
 
 
